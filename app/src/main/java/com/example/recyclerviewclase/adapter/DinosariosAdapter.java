@@ -1,6 +1,7 @@
 package com.example.recyclerviewclase.adapter;
 
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,7 @@ public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.Di
         TextView txtnombre, txttipo, txtdescripcion;
         Dinosaurio dino;
         ImageView imview;
+        Color Color;
         public DinosaurioViewHolder(@NonNull View itemView) {
             super(itemView);
             txtnombre = itemView.findViewById(R.id.txtnombre);
@@ -63,8 +65,13 @@ public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.Di
             txttipo.setText(dino.getTipo());
             txtdescripcion.setText(dino.getDescripcion());
             imview.setImageResource(dino.getImagen());
-            // itemViewdino.setBackgroundColor(R.color.black)
+            try {
+                itemView.setBackgroundColor(Color.parseColor(dinosario.getColor()));
+            } catch (IllegalArgumentException e) {
+                itemView.setBackgroundColor(Color.LTGRAY);
+            }
         }
+
 
 
         @Override

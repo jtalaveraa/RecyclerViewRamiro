@@ -26,7 +26,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerDino=findViewById(R.id.recyclerDino);
         List<Dinosaurio> dinosauriosLista=new ArrayList<>();
 
-        dinosauriosLista.add(new Dinosaurio("T-Rex", "Carnivoro", "Es un dinosaurio muy comelon", "Verde", R.drawable.rex));
+        dinosauriosLista.add(new Dinosaurio("Tyranosaurus Rex", "Carnivoro", "Es un dinosaurio muy comelon", "#32CD32", R.drawable.trexnew));
+        dinosauriosLista.add(new Dinosaurio("Triceratops", "Herbivoro", "Es un dinosaurio muy comelon", "#808000", R.drawable.trice));
+        dinosauriosLista.add(new Dinosaurio("Velociraptor", "Carnivoro", "Es un dinosaurio muy comelon", "#228B22", R.drawable.velo));
+        dinosauriosLista.add(new Dinosaurio("Brachiosaurus", "Herbívoro", "Es un dinosaurio muy comelon", "#77DD77", R.drawable.brachi));
+        dinosauriosLista.add(new Dinosaurio("Stegosaurus", "Herbívoro", "Reconocido por sus grandes placas dorsales y una cola con púas. " , "#50C878", R.drawable.stego));
+        dinosauriosLista.add(new Dinosaurio("Spinosaurus", "Carnivoro", "Es un dinosaurio muy comelon", "#2E8B57", R.drawable.spinosau));
+
 
 
         DinosariosAdapter adapter = new DinosariosAdapter(dinosauriosLista);
