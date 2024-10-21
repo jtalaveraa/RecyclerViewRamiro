@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleDinosaurio"
+    android:padding="20dp"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/txtnombred"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        android:fontFamily="serif-monospace"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ivimagen"
+        app:layout_constraintVertical_bias=".1"
+        app:layout_constraintVertical_chainStyle="packed"
+
+        >
+        <!-- android:textAlignment="center" -->
+    </TextView>
+
+    <ImageView
+        android:id="@+id/ivimagen"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtdescripciond"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtnombred"
+        app:layout_constraintVertical_bias=".1"
+        android:layout_marginTop="20dp"
+        >
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/txtdescripciond"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Descripcion"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:fontFamily="serif-monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivimagen"
+        android:layout_marginTop="20dp"
+
+        >
+
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.recyclerviewclase.adapter;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,8 @@ import com.example.recyclerviewclase.R;
 import com.example.recyclerviewclase.modelos.Dinosaurio;
 
 import java.util.List;
+
+import com.example.recyclerviewclase.DetalleDinosaurio;
 
 public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.DinosaurioViewHolder> {
 
@@ -34,6 +37,9 @@ public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.Di
         return new DinosaurioViewHolder(view); // Regresar vista al metodo de view holder
     }
 
+
+
+
     @Override
     public void onBindViewHolder(@NonNull DinosariosAdapter.DinosaurioViewHolder holder, int position) {
         holder.setData(dinasauriosLista.get(position));
@@ -41,10 +47,10 @@ public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.Di
 
     @Override
     public int getItemCount() {
-        return dinasauriosLista.size(); // Primero se llena este metodo
+        return dinasauriosLista.size(); // Primero se llena este metodo y es el tamaño de la vista
     }
 
-    public class DinosaurioViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class DinosaurioViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{ // Esta clase es un recycler view y un listener
         TextView txtnombre, txttipo, txtdescripcion;
         Dinosaurio dino;
         ImageView imview;
@@ -55,8 +61,14 @@ public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.Di
             txttipo = itemView.findViewById(R.id.txttipo);
             txtdescripcion = itemView.findViewById(R.id.txtdescripcion);
             imview = itemView.findViewById(R.id.ivimagen);
-            // itemviewdino.
-            // imview.setOnClickListener(this);
+            imview.setOnClickListener(this);
+            /* OTRA FORMA DE IMPLEMENTAR EL setOnClickListener
+            imview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                }
+
+            }); */
         }
 
         public void setData(Dinosaurio dinosario){
@@ -73,11 +85,14 @@ public class DinosariosAdapter extends RecyclerView.Adapter<DinosariosAdapter.Di
         }
 
 
-
         @Override
         public void onClick(View view) {
-            // crear intent con una actividad
-            // convertir dinosaurio a string y mandarlo a la segunda actividad (serializarlo)
+
+            Intent intent = new Intent(view.getContext(), DetalleDinosaurio.class);
+            intent.putExtra("dinosaurio", dino);
+
+
+            view.getContext().startActivity(intent); //Saber en que contexto estoy en el recyclerView
 
         }
     }

@@ -1,6 +1,8 @@
 package com.example.recyclerviewclase.modelos;
 
-public class Dinosaurio {
+import java.io.Serializable;
+
+public class Dinosaurio implements Serializable {
     private String nombre;
     private String tipo;
     private String descripcion;
